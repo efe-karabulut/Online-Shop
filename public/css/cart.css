@@ -1,0 +1,201 @@
+.cart-container {
+  padding: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.cart-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  gap: 1rem;
+  width: 80%;
+  margin-bottom: 1rem;
+}
+
+.cart-top {
+  border-radius: 5px;
+  background-color: rgb(44, 44, 44);
+  border: 2px solid rgb(148, 148, 148);
+  width: 100%;
+  display: flex;
+}
+
+.cart-bottom {
+  border-radius: 5px;
+  background-color: rgb(44, 44, 44);
+  border: 2px solid rgb(148, 148, 148);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.total-price {
+  display: flex;
+  align-items: center;
+}
+
+.hr {
+  width: 90%;
+  border-bottom: 1px solid white;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.img-container {
+  width: 15vw;
+  padding: 1rem;
+  padding-top: 2rem;
+}
+
+.cart-title {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cart-top-content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-top-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cart-price-and-qty {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.price-container,
+.qty-container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.qty,
+.price {
+  font-size: 0.7rem;
+}
+
+.cart-top-footer {
+  display: flex;
+  width: 100%;
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn {
+  width: 30px;
+  height: 30px;
+  background-color: #00695c;
+  color: #fff;
+  border: 2px solid rgb(148, 148, 148);
+  border-radius: 5px;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background-color: black;
+}
+
+.cart-bottom {
+  width: 80%;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.cart-delete {
+  width: 100%;
+  text-align: end;
+  padding-right: 8px;
+  padding-bottom: 8px;
+}
+
+.cart-delete .delete {
+  background-color: rgb(128, 15, 15);
+  color: white;
+  border: 2px solid rgb(148, 148, 148);
+  border-radius: 5px;
+  padding: 2px 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.cart-delete .delete:hover {
+  background-color: rgb(232, 9, 9);
+}
+
+.cart-prices {
+  margin-left: auto;
+}
+
+.order {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.order button {
+  width: 100%;
+  padding: 1.5rem 1rem;
+  background-color: black;
+  color: white;
+  border-radius: 1rem;
+}
+
+.order button:hover {
+  background-color: white;
+  color: black;
+}
+
+.invoice-container {
+  align-self: flex-end;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.invoice-container .invoice {
+  color: rgb(100, 100, 255);
+  font-size: 12px;
+  padding: 0.5rem;
+  padding-right: 2rem;
+  display: block;
+  transition: 0.2s all ease-in-out;
+}
+
+.invoice-container .invoice:hover {
+  color: rgb(14, 14, 255);
+}

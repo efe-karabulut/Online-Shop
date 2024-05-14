@@ -1,0 +1,61 @@
+<%- include("../includes/head.ejs") %>
+
+<link rel="stylesheet" href="/css/forms.css">
+</head>
+
+<body>
+    <%- include("../includes/nav.ejs") %>
+    <main>
+        <% if (prods.length > 0) { %>
+            <div class="grid">
+                <% prods.forEach((product) => { %>
+                    <article class="card product-item">
+                        <header class="card__header">
+                            <h1 class="product__title"><%= product.title %></h1>
+                        </header>
+                        <div class="card__image">
+                            <img src="/<%= product.imgUrl %>" alt="<%= product.title %>">
+                        </div>
+                        <div class="card__content">
+                            <h2 class="product__price">$<%= product.price %></h2>
+                            <p class="product__description"><%= product.description %></p>
+                        </div>
+                        <div class="card__actions">
+                            <a class="btn" href="/product/<%= product._id %>">Detail</a>
+                            <% if (isAuthenticated) { %>
+                            <form action="/add-to-cart" method="POST">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <button class="btn" type="submit">Add to Cart</button>
+                                <input type="hidden" name="productId" value="<%= product._id %>">
+                                <input type="hidden" name="productPrice" value="<%= product.price %>">
+                            </form>
+                            <% } %>
+                        </div>
+                    </article>
+                <% }); %>
+            </div>
+            <div class="pagination">
+                <% if (currentPage !== 1 && previousPage !== 1) { %>
+                    <a href="?page=1">1</a>
+                <% } %>
+                <% if (hasPreviousPage) { %> 
+                    <a href="?page=<%= previousPage %>"><%= previousPage %></a>
+                <% } %>    
+                <a class="pagination-active" href="?page=<%= currentPage %>"><%= currentPage %></a>
+                <% if (hasNextPage) { %> 
+                    <a href="?page=<%= nextPage %>"><%= nextPage %></a>
+                <% } %>
+                <% if (lastPage !== currentPage && lastPage !== nextPage) { %> 
+                    <span class="threeDot">...</span>
+                    <a class="pagination-lastPage" href="?page=<%= lastPage %>"><%= lastPage %></a>
+                <% } %>
+            </div>
+        <% } else { %>
+            <h1 class="no_product">No Products!</h1>
+        <% } %>
+    </main>
+</body>
+
+</html>
+
+

@@ -1,0 +1,9 @@
+.order-container {
+    padding: 8rem;
+    display: flex;
+}
+
+ul {
+    list-style-type: none;
+}
+

@@ -1,0 +1,73 @@
+<%- include("../includes/head.ejs") %>
+
+<link rel="stylesheet" href="/css/cart.css">
+</head>
+
+<body>
+    <%- include("../includes/nav.ejs") %>
+    <main>
+        <div class="cart-container">
+            <h2 class="cart-title">Your Cart</h2>
+            <% if (prods.items.length > 0) { %>
+                <% prods.items.forEach((product) => { %>
+                    <div class="cart-content">
+                        <div class="cart-top">
+                            <div class="img-container">
+                                <img src="/<%= product.imgUrl %>" alt="resim">
+                            </div>
+                            <div class="cart-top-content">
+                                    <h3 class="cart-title">
+                                        <%= product.title %>
+                                    </h3>
+                                    <span class="hr"></span>
+                                    <div class="cart-price-and-qty">
+                                        <div class="price-container">
+                                            <h4 class="price-text">Price:</h4>
+                                            <span class="hr"></span>
+                                            <span class="price">$<%= product.price %></span>
+                                        </div>
+                                        <div class="qty-container">
+                                            <h4 class="qty-text">Quantity:</h4>
+                                            <span class="hr"></span>
+                                            <span class="qty"><%= product.quantity %></span>
+                                        </div>
+                                    </div>
+                                    <div class="cart-top-footer">
+                                        <form action="/one-decrease" method="POST">
+                                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                            <input type="hidden" name="productId" value="<%= product._id %>">
+                                            <button class="btn">-</button>
+                                        </form>
+                                        <form action="/one-increase" method="POST">
+                                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                            <input type="hidden" name="productId" value="<%= product._id %>">
+                                            <button class="btn">+</button>
+                                        </form>      
+                                    </div>
+                                    <form class="cart-delete" action="/delete-from-cart" method="POST">
+                                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                        <input type="hidden" name="productId" value="<%= product._id %>">
+                                        <button type="submit" class="delete">Delete</button>
+                                    </form>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+                    <div class="total-price">
+                        <span class="total-price-text">Total Price: <%= prods.totalPrice %></span>
+                    </div>
+                    <div class="order">
+                        <form action="/order-now" method="POST">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <button class="btn" type="submit">Order Now!</button>
+                        </form>
+                    </div>
+            <% } else { %>
+                <h1>No Producst !</h1>
+            <% } %>  
+        </div>
+        </div>
+    </main>
+</body>
+
+</html>

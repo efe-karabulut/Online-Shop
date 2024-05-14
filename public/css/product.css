@@ -1,0 +1,99 @@
+.product_main {
+  padding-top: 8rem;
+}
+
+.product-form {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input#image {
+  color: white;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.form-control label {
+  padding-left: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.form-control input {
+  border: 4px solid #00695c;
+  border-radius: 5px;
+  height: 2rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease-in-out;
+  color: black;
+  width: 100%;
+  height: 100%;
+}
+
+.form-control textarea {
+  border: 4px solid #00695c;
+  border-radius: 5px;
+  padding: 0.72rem;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease-in-out;
+  color: black;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  outline: none;
+}
+
+.btn {
+  padding: 0.8rem;
+  background-color: black;
+  color: white;
+  border: 2px solid #00695c;
+  border-radius: 1rem;
+  transition: all 0.2s ease-in-out;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: white;
+  color: black;
+}
+
+form input.invalid,
+form textarea.invalid {
+  border-color: red;
+}
+
+.error-msg-container {
+  display: flex;
+  width: 50%;
+  margin-left: 8rem;
+  margin-top: 12rem;
+  position: absolute;
+  align-items: center;
+  text-align: center;
+}
+
+.error-msg {
+  font-family: inherit;
+  color: white;
+  font-size: 14px;
+  padding: 1rem 2rem;
+  background-color: rgb(217, 102, 102);
+  border: 1px solid rgb(225, 47, 47);
+}
+
+img#edit-image {
+  width: 30%;
+}
+
+

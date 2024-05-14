@@ -1,0 +1,46 @@
+<%- include("../includes/head.ejs") %>
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <%- include("../includes/admin-nav.ejs") %>
+    <% if(errorMsg) { %>
+        <div class="error-msg-container">
+            <span class="error-msg"><%= errorMsg %></span>
+        </div>
+    <% } %>
+    <main class="product_main">
+        <form class="product-form" action="/admin/edit-product" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <input type="hidden" name="productId" value="<%= product._id %>">
+            <input type="hidden" name="userId" value="<%= userId %>">
+            
+            <div class="form-control">
+                <label for="title">Title:</label>
+                <input class="<%= errorPath.find(e => e.path === 'title') ? 'invalid' : '' %>" type="text" name="title" id="title" placeholder="Product Title..." value="<%= product.title %>">
+            </div>
+
+            <div class="form-control special">
+                <label for="imgUrl">Image:</label>
+                <% if (product.imgUrl) { %>
+                    <img id="edit-image" src="/<%= product.imgUrl %>" alt="<%= product.title %>">
+                <% } %>
+                <input type="file" name="image" id="image">
+            </div>
+
+            <div class="form-control">
+                <label for="price">Price:</label>
+                <input class="<%= errorPath.find(e => e.path === 'price') ? 'invalid' : '' %>" type="number" name="price" id="price" placeholder="Price..." step="any" value="<%= product.price %>">
+            </div>
+
+            <div class="form-control">
+                <label for="description">Description:</label>
+                <textarea class="<%= errorPath.find(e => e.path === 'description') ? 'invalid' : '' %>" name="description" id="description" rows="5" placeholder="Description..."><%= product.description %></textarea>
+            </div>
+            
+            <button class="btn" type="submit">Update Product</button>
+        </form>
+    </main>
+</body>
+
+</html>

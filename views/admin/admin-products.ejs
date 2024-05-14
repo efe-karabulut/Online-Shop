@@ -1,0 +1,42 @@
+<%- include("../includes/head.ejs") %>
+
+<link rel="stylesheet" href="/css/forms.css">
+</head>
+
+<body>
+    <%- include("../includes/admin-nav.ejs") %>
+    <main>
+        <% if (prods.length > 0) { %>
+            <div class="grid">
+                <% prods.forEach((product) => { %>
+                    <article class="card product-item">
+                        <header class="card__header">
+                            <h1 class="product__title"><%= product.title %></h1>
+                        </header>
+                        <div class="card__image">
+                            <img src="/<%= product.imgUrl %>" alt="<%= product.title %>">
+                        </div>
+                        <div class="card__content">
+                            <h2 class="product__price">$<%= product.price %></h2>
+                            <p class="product__description"><%= product.description %></p>
+                        </div>
+                        <div class="card__actions">
+                            <a href="/admin/edit-product/<%= product._id %>/<%= edit %>" class="btn">Edit</a>
+                            <form action="/admin/delete-product" method="POST">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <input type="hidden" name="productId" value="<%= product._id %>">
+                                <input type="hidden" name="userId" value="<%= product.userId %>">
+                                <input type="hidden" name="imgUrl" value="<%= product.imgUrl %>">
+                                <button class="btn" type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </article>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <h1 class="no_product">No Products!</h1>
+        <% } %>
+    </main>
+</body>
+
+</html>
